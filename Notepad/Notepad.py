@@ -1,0 +1,22 @@
+from tkinter import Entry, Tk, Text,Button,INSERT,Text,messagebox,END
+from Notepad_source import File,Claer,saves
+main = Tk()
+main.title('Notepad')
+main.geometry('500x600')
+main.resizable(False,False)
+brower_text = Text(main, bd='5')
+window_note = Text(main, bd='10')
+Button_search = Button(main, text = "Browse File",command = lambda : File(main, window_note, brower_text))
+Button_clear = Button(main, text="Caler",command = lambda : Claer(messagebox,window_note, brower_text))
+Button_save = Button(main, text="save",command = lambda : saves(messagebox,window_note, brower_text))
+Text_for_file= Text(main)
+Text_for_file.insert(INSERT, "Name File")
+Text_for_file.configure(state='disabled')
+'''place program'''
+window_note.place(x=30,y=70,width=440,height=450)
+Button_search.place(x=350,y=10,width=100,height=30)
+Button_clear.place(x=350,y=550,width=100,height=30)
+Button_save.place(x=250,y=550,width=100,height=30)
+brower_text.place(x=100,y=10,width=250,height=30)
+Text_for_file.place(x=3,y=10,width=50,height=33)
+main.mainloop()
